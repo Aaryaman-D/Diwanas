@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Place Your Order - Diwanas</title>
+  <meta name="robots" content="noindex, nofollow" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     body {
@@ -93,7 +94,7 @@
   </style>
 </head>
 <body>
-  <div class="order-container" id="orderFormContainer">
+  <div class="order-container">
     <h2>Place Your Order</h2>
     <form id="orderForm">
       <label for="name">Full Name*</label>
@@ -103,7 +104,7 @@
       <input type="email" id="email" name="email" required placeholder="you@example.com" autocomplete="email" />
 
       <label for="phone">Phone Number*</label>
-      <input type="tel" id="phone" name="phone" required placeholder="Your phone number" pattern="^\+?\d{10,15}$" autocomplete="tel" />
+      <input type="tel" id="phone" name="phone" required placeholder="Your phone number" pattern="\+?\d{10,15}" autocomplete="tel" />
 
       <label for="quantity">Quantity (in dozens)*</label>
       <select id="quantity" name="quantity" required>
@@ -151,19 +152,22 @@
       const pricePerDozen = 40;
       const total = (parseFloat(quantity) * pricePerDozen).toFixed(2);
 
-      // Build WhatsApp message text
-      let whatsappMessage = `Hello Diwanas,%0AI would like to order *${quantity} dozen(s)* of *bananas*.%0AName: ${name}%0AEmail: ${email}%0APhone: ${phone}%0APayment Method: ${payment}%0ATotal: ₹${total}`;
+      // Obfuscated number
+      const part1 = '9021';
+      const part2 = '784306';
+      const whatsappNumber = `+91${part1}${part2}`;
+
+      // WhatsApp Message
+      let whatsappMessage = `Hello Diwanas,%0AI would like to order *${quantity} dozen(s)* of *bananas*.%0AName: ${name}%0AEmail: ${email}%0APhone: ${phone}%0APayment Mode: ${payment}%0ATotal: ₹${total}`;
 
       if (message) {
         whatsappMessage += `%0AMessage: ${message}`;
       }
 
-      const whatsappNumber = '919021784306';
+      whatsappMessage += `%0A%0AThank you for choosing Diwanas!`;
 
-      const whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+      const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
       window.open(whatsappURL, '_blank');
-
-      alert('Thank you for your order! You will be redirected to WhatsApp to complete the process.');
     });
   </script>
 </body>
