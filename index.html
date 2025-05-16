@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Diwanas - Yellaki Keli Bananas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-image: url('photo2.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: #a3d28a;
+      overflow-x: hidden;
+      position: relative;
+      z-index: 0;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      pointer-events: none;
+      background: linear-gradient(270deg, rgba(20, 60, 20, 0.2), rgba(50, 90, 30, 0.35), rgba(20, 60, 20, 0.2));
+      background-size: 600% 600%;
+      animation: gradientShift 15s ease infinite;
+      z-index: -1;
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: rgba(20, 60, 20, 0.85);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 8px 20px rgba(0,100,0,0.5);
+      color: #e6f1d6;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeSlideIn 1s forwards;
+      animation-delay: 0.3s;
+      position: relative;
+      z-index: 1;
+    }
+    @keyframes fadeSlideIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeSlideIn 1s forwards;
+      animation-delay: 0.6s;
+    }
+    h1 {
+      margin: 0;
+      font-size: 3rem;
+      font-weight: 600;
+      color: #f5f9e8;
+    }
+    p {
+      font-size: 1.2rem;
+      margin-top: 8px;
+      line-height: 1.5;
+      color: #cde5a6;
+    }
+    .slide, .card {
+      background: rgba(10, 40, 10, 0.75);
+      border-radius: 20px;
+      padding: 25px 30px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 12px rgba(0,70,0,0.4);
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeSlideIn 1s forwards;
+    }
+    .slide {
+      animation-delay: 0.9s;
+    }
+    .card {
+      animation-delay: 1.2s;
+      background: rgba(30, 80, 30, 0.8);
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,70,0,0.5);
+      padding: 20px;
+      margin-top: 0;
+      color: #d0e8a2;
+    }
+    img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 10px rgba(0, 50, 0, 0.7);
+      transition: transform 0.4s ease;
+      cursor: pointer;
+    }
+    img:hover {
+      transform: scale(1.05);
+    }
+    ul {
+      padding-left: 20px;
+      margin: 0;
+      color: #d9f0a3;
+    }
+    ul li {
+      margin-bottom: 8px;
+    }
+    footer {
+      text-align: center;
+      color: #b3c492;
+      font-size: 14px;
+      margin-top: 40px;
+      opacity: 0;
+      animation: fadeSlideIn 1s forwards;
+      animation-delay: 1.5s;
+    }
+    button {
+      background-color: #a3d28a;
+      color: #1a2e0b;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    button:hover {
+      background-color: #89b16e;
+      transform: scale(1.05);
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    label {
+      font-weight: 600;
+      color: #b6d38f;
+    }
+    input, select, textarea {
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #667b40;
+      font-size: 1rem;
+      resize: vertical;
+      background-color: #2a4a10;
+      color: #e3f0c4;
+      transition: border-color 0.3s ease;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: #a3d28a;
+      outline: none;
+    }
+    input::placeholder, textarea::placeholder {
+      color: #9db36f;
+    }
+    @media(max-width: 600px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+      .container {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="slide">
+      <h2>About Diwate Farm</h2>
+      <p>
+        Nestled in the fertile landscapes of Nashik, Maharashtra, Diwate Farm has been cultivating premium quality bananas with dedication and care.
+        We specialize in the renowned <strong>Yellaki Keli</strong> variety (also known as <em>Elaichi Keli</em>),
+        grown organically to ensure natural sweetness and rich aroma.
+        Our commitment to sustainable farming and eco-friendly practices guarantees the freshest, healthiest bananas delivered straight to your table.
+      </p>
+      <a href="explore.html" target="_blank" rel="noopener noreferrer">
+        <button style="margin-top: 15px; font-weight: 700; font-size: 1.1rem;">EXPLORE</button>
+      </a>
+    </div>
+
+    <header>
+      <h1>Diwanas</h1>
+      <p>Premium Yellaki Keli from Diwate Farm, Nashik</p>
+    </header>
+
+    <div class="card">
+      <img src="photo5.webp" alt="Yellaki Keli Banana" />
+      <h2>Yellaki Keli</h2>
+      <p>
+        Grown in the fertile soils of Diwate Farm, Nashik, our Yellaki Keli is known
+        for its rich aroma, sweet taste, and smooth texture. Perfectly ripened,
+        chemical-free, and handpicked for the highest quality.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>About Yellaki Keli (Elaichi Banana)</h2>
+      <p><strong>Yellaki Keli</strong>, commonly known as <em>Elaichi Banana</em>, is a premium banana variety cherished for its naturally sweet flavor and aromatic profile. Though small in size, it delivers a rich, tropical experience that sets it apart from regular bananas.</p>
+      <ul>
+        <li><strong>Origin & Cultivation:</strong> Mainly grown in South India and parts of Maharashtra like Nashik. It thrives in warm climates with fertile soil and takes about 10–12 months to mature.</li>
+        <li><strong>Physical Traits:</strong> Small to medium-sized (3–5 inches), thin yellow peel, creamy and soft white flesh. Best consumed fresh.</li>
+        <li><strong>Flavor:</strong> Naturally sweet with a distinct cardamom-like aroma — hence the name "Elaichi".</li>
+        <li><strong>Health Benefits:</strong> High in potassium, rich in Vitamin C and B6, good for digestion, and free of cholesterol and fat.</li>
+        <li><strong>Common Uses:</strong> Eaten raw, used in poojas, perfect for baby food, and great in smoothies and desserts.</li>
+        <li><strong>Why It's Premium:</strong> Its delicate texture, exceptional taste, and lower yield make it a high-demand, premium product.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Why Choose Diwanas?</h3>
+      <ul>
+        <li>100% Natural & Organic Farming</li>
+        <li>Rich, Sweet Taste & Aroma</li>
+        <li>Carefully Harvested from Diwate Farm</li>
+        <li>Fresh from Nashik to Your Table</li>
+        <li>Eco-Friendly Packaging</li>
+      </ul>
+    </div>
+
+    <div class="card" style="display: flex; gap: 15px; align-items: center; flex-wrap: wrap;">
+      <img src="photo3.jpeg" alt="Additional Banana Image" style="width: 45%; max-width: 300px; border-radius: 16px; box-shadow: 0 3px 15px rgba(0, 60, 0, 0.8);" />
+      <div style="flex: 1; min-width: 250px;">
+        <h3>Place Your Order</h3>
+        <p>Click the button below to go to the order page and place your order easily!</p>
+        <a href="order.html" target="_blank" rel="noopener noreferrer">
+          <button>Place Order Now</button>
+        </a>
+      </div>
+    </div>
+
+    <footer>
+      &copy; 2025 Diwanas | Diwate Farm, Nashik, Maharashtra - Shahu Nagar, 422008<br />
+      <small>Managed by - Aaryaman</small>
+    </footer>
+  </div>
+</body>
+</html>
